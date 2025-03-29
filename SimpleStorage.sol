@@ -15,6 +15,8 @@ contract SimpleStorage {
 
     Person[] public listOfPeople; // []
 
+    mapping(string => uint256) public nameToFavoriteNumber;
+
 
     // Person public  pat = Person({favoriteNumber: 7, name: "Pat"});
 
@@ -30,6 +32,7 @@ contract SimpleStorage {
     // calldata, memory, storage
     function addPerson(string memory _name, uint256 _favoriteNumber) public {
         listOfPeople.push(Person(_favoriteNumber, _name));
+        nameToFavoriteNumber[_name] = _favoriteNumber;
     }
 
 
