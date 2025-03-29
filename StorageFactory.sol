@@ -1,9 +1,7 @@
 
-// EVM, Thereum Virtual Machine
-// Ethereum, Polygon, Arbitrum, Optimism, Zksync
 
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.24;
+pragma solidity ^0.8.18;
 
 contract SimpleStorage {
     // favoriteNumber gets initialized to 0 if no value is given
@@ -35,4 +33,18 @@ contract SimpleStorage {
         listOfPeople.push(Person(_favoriteNumber, _name));
         nameToFavoriteNumber[_name] = _favoriteNumber;
     }
+
+
+
+}
+
+contract StorageFactory{
+    // uint256 public favoriteNumber
+    SimpleStorage public simpleStorage;
+
+    function createSimpleStorageContract() public {
+        // How does the storeage factory know what simple storage looks like?
+        simpleStorage = new SimpleStorage();
+    }
+
 }
