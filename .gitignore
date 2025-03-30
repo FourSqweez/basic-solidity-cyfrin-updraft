@@ -15,6 +15,7 @@ broadcast/
 
 # Remix local state
 .states/
+.deps/
 
 # dotenv environment variables
 .env
