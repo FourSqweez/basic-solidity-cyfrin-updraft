@@ -1,0 +1,35 @@
+# Node + Package Managers
+node_modules/
+.pnpm/
+.yarn/
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# Build output
+artifacts/
+cache/
+out/
+forge-artifacts/
+broadcast/
+
+# Remix local state
+.states/
+.deps/
+
+# dotenv environment variables
+.env
+.env.*
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Hardhat temp files
+typechain/
+
+# VS Code
+.vscode/
