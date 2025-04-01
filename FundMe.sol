@@ -35,6 +35,17 @@ contract FundMe {
         funders = new address[](0);
         // withdraw the funds
 
-
+        // transfer
+        // msg.sender = type address
+        // payable(msg.sender) = type payable address
+        // automatic revert if tsx falild
+        // payable(msg.sender).transfer(address(this).balance);
+        // send
+        // revert only when using require
+        // bool sendSuccess = payable(msg.sender).send(address(this).balance);
+        // require(sendSuccess, "Send failed");
+        // call
+       (bool callSuccess, ) = payable(msg.sender).call{value: address(this).balance}("");
+       require(callSuccess, "Call failed");
     }
 }
