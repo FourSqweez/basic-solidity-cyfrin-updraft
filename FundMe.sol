@@ -69,4 +69,14 @@ contract FundMe {
                 if(msg.sender != i_owner) revert NotOwner(); 
                 _;
     }
+
+    // What happens if someone sends this contract ETH without calling fund function?
+
+    receive() external payable {
+        fund();
+    }
+
+    fallback() external payable {
+        fund();
+    }
 }
