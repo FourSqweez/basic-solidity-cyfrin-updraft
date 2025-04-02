@@ -9,6 +9,9 @@ pragma solidity ^0.8.18;
 
 import {PriceConverter} from "./PriceConverter.sol";
 
+// less gas cost if using custom error instead of require
+error NotOwner();
+
 contract FundMe {
     using PriceConverter for uint256;
 
@@ -62,7 +65,8 @@ contract FundMe {
     }
 
     modifier onlyOwner() {
-                require(msg.sender == i_owner, "Must be owner!");
+                // require(msg.sender == i_owner, "Must be owner!");
+                if(msg.sender != i_owner) revert NotOwner(); 
                 _;
     }
 }
